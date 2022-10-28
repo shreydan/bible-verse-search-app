@@ -8,6 +8,13 @@ This app allows the user to semantically search for Bible verses with just the v
 
 ![screenshot of app](./screenshot.png)
 
+#### Working
+
+- Transformer model to embed all Bible verses into a vector space using sentence-transformers
+- compare input embeddings with embeddings of each Bible verse using cosine similarity
+- fetch top N verses with high cosine similarity
+- KJV Bible dataset provided by: [@scrollmapper/bible_databases](https://github.com/scrollmapper/bible_databases) in public domain.
+
 ---
 
 This app is hosted on streamlit
