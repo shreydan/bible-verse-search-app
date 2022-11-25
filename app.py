@@ -9,14 +9,11 @@ st.markdown("### Praise the Lord.")
 st.markdown("##### Please type the text you recall from the verse to get references.")
 
 
-with st.form(key='text_form'):
-
-    text_input:str = st.text_input(label='type verse...',key='input')
+with st.container():
+    text_input:str = st.text_input(label='type verse and submit',key='input')
     text_input = text_input.strip()
-
     st.caption('Examples: do not be afraid, bless the Lord oh my soul')
-
-    num_responses = st.slider(
+    num_responses = st.number_input(
         label='number of responses',
         min_value=5,
         max_value=30,
@@ -24,10 +21,16 @@ with st.form(key='text_form'):
         value=10
     )
     num_responses = int(num_responses)
-    submitted = st.form_submit_button("Search")
+
+    submitted = st.button(
+        label='Search',
+        type='primary'
+    )
 
 
-if submitted and len(text_input) != 0:
+
+
+if len(text_input) != 0 or submitted:
     response = evaluator.get_verses(text_input,top=num_responses)
     references = response['reference']
     verses = response['verse']
