@@ -15,10 +15,10 @@ with st.container():
     st.caption('Examples: do not be afraid, bless the Lord oh my soul')
     num_responses = st.number_input(
         label='number of responses',
-        min_value=5,
-        max_value=30,
-        step=5,
-        value=10
+        min_value=10,
+        max_value=500,
+        step=10,
+        value=25
     )
     num_responses = int(num_responses)
 
